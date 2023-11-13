@@ -6,6 +6,7 @@ import random as rand
 #-----game configuration----
 bob = trtl.Turtle()
 turt_color = "pink"
+score = 0
 
 
 #-----initialize turtle-----
@@ -14,15 +15,22 @@ bob.pencolor(turt_color)
 bob.fillcolor(turt_color)
 
 #-----game functions--------
-def bob_clicked(x, y):
+def updateScore():
+    global score
+    score += 1
+    print(score)
+def bob_clicked():
     print("You caught bob")
+    updateScore()
 def change_position(x, y):
     newxpos = rand.randint(-400,400)
     newypos = rand.randint(-300, 300)
     bob.penup()
     bob.goto(newxpos, newypos)
     bob.pendown()
-score = 0
+    updateScore()
+
+
 
 
 #-----events----------------

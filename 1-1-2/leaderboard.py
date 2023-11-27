@@ -28,7 +28,7 @@ def get_names(file_name):
     leaderboard_file.close()
 
     #  TODO 6: return the names list in place of the empty list
-    return []
+    return [names]
 
 
 # return scores from the leaderboard file
@@ -41,7 +41,6 @@ def get_scores(file_name):
         index = 0
 
         while (line[index] != ","):
-            leader_score = leader_score + line[index]
             index = index + 1
         index = index + 1
 
@@ -50,11 +49,11 @@ def get_scores(file_name):
             index = index + 1
 
         scores.append(leader_score)
-
+        print(str(leader_score))
     leaderboard_file.close()
 
     # TODO 7: return the scores in place of the empty list
-    return []
+    return [scores]
 
 
 # update leaderboard by inserting the current player and score to the list at the correct position

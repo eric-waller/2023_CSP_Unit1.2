@@ -112,6 +112,7 @@ def manage_leaderboard():
 
   global score
   global spot
+  global leaderboard_file_name
 
   # get the names and scores from the leaderboard file
   leader_names_list = lb.get_names(leaderboard_file_name)

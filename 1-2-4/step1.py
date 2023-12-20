@@ -23,23 +23,34 @@ def goto_start():
     wall.pendown()
 
 #Set up maze
-def setup_maze(wall_length):
+def make_maze(wall_length):
     global wall_spacing
-    for border in range(25):
-        wall.left(90)
-        wall.forward(wall_length)
-        wall_length += wall_spacing
-def make_doors(wall_length):
-    global wall_spacing
-    for border in range(25):
-        wall.left(90)
-        wall.forward(10)
+    for border in range(3):
         wall.penup()
-        wall.forward(wall_spacing*2)
+        wall.left(90)
+        wall.forward(wall_length+10)
+        wall_length += 20
         wall.pendown()
-        wall.forward(wall_length - 30)
-        wall_length += wall_spacing
+    for border in range(21):
+        wall.left(90)
+        draw_door()
+        make_wall()
+        wall.forward(wall_length - 10 - (wall_spacing * 2))
+        wall_length += 20
+
+def draw_door():
+    wall.forward(10)
+    wall.penup()
+    wall.forward(wall_spacing * 2)
+    wall.pendown()
 
 
-make_doors(20)
+def make_wall():
+    wall.forward(40)
+    wall.left(90)
+    wall.forward(wall_spacing * 2)
+    wall.back(wall_spacing * 2)
+    wall.right(90)
+
+make_maze(20)
 wn.mainloop()

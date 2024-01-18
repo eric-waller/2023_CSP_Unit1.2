@@ -36,7 +36,7 @@ def travel():
             score += 1
             score_write.clear()
             score_write.write(score, font=("Arial", 55, "bold"))
-            speed += score/4
+            speed += score/8
     if abs(head.xcor()) > 460:
         game_over()
     if abs(head.ycor()) > 390:
